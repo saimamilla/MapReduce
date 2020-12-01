@@ -153,7 +153,7 @@ public class AmazonTopReviewers extends Configured implements Tool {
 				
 				JsonObject jsonObject = jsonTree.getAsJsonObject();
 				boolean isVerified = jsonObject.get("verified").getAsBoolean();
-				if(isVerified==null || isVerified || !isVerified){
+				if(isVerified==true || isVerified==false){
 				    String reviewerID = jsonObject.get("reviewerID").getAsString();
 				    String reviewer = jsonObject.get("reviewerName").getAsString();
 				    double overall = Double.parseDouble(jsonObject.get("overall").getAsString());
@@ -162,7 +162,7 @@ public class AmazonTopReviewers extends Configured implements Tool {
 				    reviewerAverage.setCount(1);
 				    reviewerName.set(reviewer);
 				
-                // context.write(new Text(reviewerID),one);
+                			// context.write(new Text(reviewerID),one);
 			        context.write(reviewerName, reviewerAverage);
 				}
 				// Here we increment a counter that we can read when the job is done
