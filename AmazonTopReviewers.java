@@ -153,7 +153,7 @@ public class AmazonTopReviewers extends Configured implements Tool {
 				
 				JsonObject jsonObject = jsonTree.getAsJsonObject();
 				boolean isVerified = jsonObject.get("verified").getAsBoolean();
-				if(isVerified==true || isVerified==false){
+				if(isVerified==true){
 				    String reviewerID = jsonObject.get("reviewerID").getAsString();
 				    String reviewer = jsonObject.get("reviewerName").getAsString();
 				    double overall = Double.parseDouble(jsonObject.get("overall").getAsString());
