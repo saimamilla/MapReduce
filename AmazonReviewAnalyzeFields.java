@@ -164,11 +164,11 @@ public class AmazonReviewAnalyzeFields extends Configured implements Tool {
 			tmap2.put(overall, name);
 
 			if(tmap2.size()>100) tmap2.remove((tmap2.firstKey()));
-			context.write(key, new IntWritable(sum));
+			context.write(key, new IntWritable(overall));
 		}
 
 		@Override
-		public void cleanup(Context context) throws IPException, InterruptedException{
+		public void cleanup(Context context) throws IOException, InterruptedException{
 			for(Map.Entry<Integer, String> entry: tmap2.entrySet()){
 				int count = entry.getKey();
 				String name = entry.getValue();
