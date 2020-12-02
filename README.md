@@ -13,8 +13,8 @@
  - Note that you will need to delete the output folder if it already exists: `hadoop fs -rm -r /user/smamilla/top_reviewers` otherwise you will get an "Exception in thread "main" org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://dsba-nameservice/user/... type of error.
  - Now we execute the map-reduce job: ` HADOOP_CLASSPATH=$(hbase mapredcp):/etc/hbase/conf:process_topReviewers.jar hadoop jar process_topReviewers.jar AmazonTopReviewers '/user/smamilla/top_reviewerss'`
  - Once that job completes, you can concatenate the output across all output files with: `hadoop fs -cat /user/smamilla/top_reviewerss/*
- ` or if you have output that is too big for displaying on the terminal screen you can do `hadoop fs -cat /user/smamilla/top_reviewerss/* | sort -n -k2 -r > overall.txt` 
- 8. To get top 100 - ` hadoop fs -cat /user/smamilla/top_reviewerss/* | sort -n -k2 -r | head -n100`
- 9. store the output to text  `hadoop fs -cat /user/smamilla/top_reviewerss/* | sort -n -k2 -r | head -n100 >Top100.txt`
+ ` or if you have output that is too big for displaying on the terminal screen you can do `hadoop fs -cat /user/smamilla/top_reviewerss/* | sort -n -k3 -r > overall.txt` 
+ 8. To get top 100 - ` hadoop fs -cat /user/smamilla/top_reviewerss/* | sort -n -k3 -r | head -n100`
+ 9. store the output to text  `hadoop fs -cat /user/smamilla/top_reviewerss/* | sort -n -k3 -r | head -n100 >Top100.txt`
  
  The output is: in Top100.txt
