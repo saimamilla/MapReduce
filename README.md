@@ -1,6 +1,6 @@
 # Sai Venkatesh Mamillapalli MapReduce
 
-# Executing AmazonProductAnalyzeFields
+# Executing AmazonTopReviewers.java
 **Case - Identify the top 100 Verified Reviewers and their overall average rating**
 1. Log into dsba-hadoop.uncc.edu using ssh
 2. `https://github.com/saimamilla/MapReduce.git` to clone this repo
